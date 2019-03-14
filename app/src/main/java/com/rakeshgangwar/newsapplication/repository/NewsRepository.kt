@@ -1,6 +1,5 @@
 package com.rakeshgangwar.newsapplication.repository
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import com.rakeshgangwar.newsapplication.AppExecutors
 import com.rakeshgangwar.newsapplication.db.NewsDao
@@ -21,14 +20,13 @@ class NewsRepository @Inject constructor(
 
 ) {
     fun getNews(): LiveData<Resource<List<Article>>> {
-        return object : NetworkBoundResource<List<Article>, NewsData>(appExecutors){
+        return object : NetworkBoundResource<List<Article>, NewsData>(appExecutors) {
             override fun saveCallResult(item: NewsData) {
-                Log.d("","")
                 newsDao.insertNews(item.articles)
             }
 
             override fun shouldFetch(data: List<Article>?): Boolean {
-                return data == null || data.isEmpty()
+                return true
             }
 
             override fun loadFromDb(): LiveData<List<Article>> {

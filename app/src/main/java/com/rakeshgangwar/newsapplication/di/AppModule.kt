@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.room.Room
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.rakeshgangwar.newsapplication.BuildConfig
-import com.rakeshgangwar.newsapplication.NewsApplication
 import com.rakeshgangwar.newsapplication.db.NewsDB
 import com.rakeshgangwar.newsapplication.db.NewsDao
 import com.rakeshgangwar.newsapplication.network.NewsService
